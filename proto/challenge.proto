@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.github.anight.mysticchallenge;
+
+option go_package = "github.com/anight/mysticchallenge/proto";
+
+message RequestExecute {
+        bytes request = 1;
+}
+
+message ResponseExecute {
+        bytes result = 1;
+        string error = 2;
+}
+
+service RemoteExecuteAPI {
+        rpc Execute(RequestExecute) returns (ResponseExecute) {}
+}
