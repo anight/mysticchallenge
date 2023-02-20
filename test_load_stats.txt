@@ -1,0 +1,258 @@
+--------------------------------------------------------------------------------
+workers: 10
+calls: 10
+minimal_execution_time: 0.988719
+real_execution_time: 0.989870
+effectiveness of parallelization: 99.88%
+
+num of calls: served by num of wokers
+           1:   10
+--------------------------------------------------------------------------------
+workers: 10
+calls: 20
+minimal_execution_time: 0.995360
+real_execution_time: 1.264774
+effectiveness of parallelization: 78.70%
+
+num of calls: served by num of wokers
+           1:    2
+           2:    6
+           3:    2
+--------------------------------------------------------------------------------
+workers: 10
+calls: 50
+minimal_execution_time: 2.427310
+real_execution_time: 3.036582
+effectiveness of parallelization: 79.94%
+
+num of calls: served by num of wokers
+           3:    1
+           4:    3
+           5:    2
+           6:    3
+           7:    1
+--------------------------------------------------------------------------------
+workers: 10
+calls: 100
+minimal_execution_time: 4.588369
+real_execution_time: 5.181010
+effectiveness of parallelization: 88.56%
+
+num of calls: served by num of wokers
+           7:    1
+           8:    2
+           9:    2
+          10:    3
+          11:    1
+          18:    1
+--------------------------------------------------------------------------------
+workers: 20
+calls: 20
+minimal_execution_time: 0.994534
+real_execution_time: 0.997362
+effectiveness of parallelization: 99.72%
+
+num of calls: served by num of wokers
+           1:   20
+--------------------------------------------------------------------------------
+workers: 20
+calls: 40
+minimal_execution_time: 0.996345
+real_execution_time: 1.449678
+effectiveness of parallelization: 68.73%
+
+num of calls: served by num of wokers
+           1:    5
+           2:   12
+           3:    2
+           5:    1
+--------------------------------------------------------------------------------
+workers: 20
+calls: 100
+minimal_execution_time: 2.494803
+real_execution_time: 3.065400
+effectiveness of parallelization: 81.39%
+
+num of calls: served by num of wokers
+           3:    4
+           4:    4
+           5:    3
+           6:    6
+           7:    3
+--------------------------------------------------------------------------------
+workers: 20
+calls: 200
+minimal_execution_time: 4.848739
+real_execution_time: 5.300767
+effectiveness of parallelization: 91.47%
+
+num of calls: served by num of wokers
+           7:    1
+           8:    4
+           9:    4
+          10:    4
+          11:    3
+          12:    3
+          16:    1
+--------------------------------------------------------------------------------
+workers: 50
+calls: 50
+minimal_execution_time: 0.973623
+real_execution_time: 0.976279
+effectiveness of parallelization: 99.73%
+
+num of calls: served by num of wokers
+           1:   50
+--------------------------------------------------------------------------------
+workers: 50
+calls: 100
+minimal_execution_time: 1.000811
+real_execution_time: 1.584809
+effectiveness of parallelization: 63.15%
+
+num of calls: served by num of wokers
+           1:   13
+           2:   27
+           3:    8
+           4:    1
+           5:    1
+--------------------------------------------------------------------------------
+workers: 50
+calls: 250
+minimal_execution_time: 2.383387
+real_execution_time: 2.967295
+effectiveness of parallelization: 80.32%
+
+num of calls: served by num of wokers
+           3:    4
+           4:   13
+           5:   19
+           6:    7
+           7:    7
+--------------------------------------------------------------------------------
+workers: 50
+calls: 500
+minimal_execution_time: 4.998484
+real_execution_time: 5.577799
+effectiveness of parallelization: 89.61%
+
+num of calls: served by num of wokers
+           7:    2
+           8:    3
+           9:   17
+          10:   10
+          11:   13
+          12:    2
+          13:    1
+          14:    1
+          15:    1
+--------------------------------------------------------------------------------
+workers: 100
+calls: 100
+minimal_execution_time: 0.970887
+real_execution_time: 0.975516
+effectiveness of parallelization: 99.53%
+
+num of calls: served by num of wokers
+           1:  100
+--------------------------------------------------------------------------------
+workers: 100
+calls: 200
+minimal_execution_time: 0.996168
+real_execution_time: 1.633593
+effectiveness of parallelization: 60.98%
+
+num of calls: served by num of wokers
+           1:   27
+           2:   52
+           3:   16
+           4:    4
+           5:    1
+--------------------------------------------------------------------------------
+workers: 100
+calls: 500
+minimal_execution_time: 2.476092
+real_execution_time: 3.075576
+effectiveness of parallelization: 80.51%
+
+num of calls: served by num of wokers
+           3:   11
+           4:   26
+           5:   31
+           6:   18
+           7:   13
+           9:    1
+--------------------------------------------------------------------------------
+workers: 100
+calls: 1000
+minimal_execution_time: 4.976560
+real_execution_time: 5.544072
+effectiveness of parallelization: 89.76%
+
+num of calls: served by num of wokers
+           7:    5
+           8:   15
+           9:   19
+          10:   22
+          11:   23
+          12:   10
+          13:    4
+          14:    1
+          15:    1
+--------------------------------------------------------------------------------
+workers: 200
+calls: 200
+minimal_execution_time: 0.999721
+real_execution_time: 1.009691
+effectiveness of parallelization: 99.01%
+
+num of calls: served by num of wokers
+           1:  200
+--------------------------------------------------------------------------------
+workers: 200
+calls: 400
+minimal_execution_time: 0.999773
+real_execution_time: 1.644207
+effectiveness of parallelization: 60.81%
+
+num of calls: served by num of wokers
+           1:   59
+           2:   98
+           3:   29
+           4:   13
+           6:    1
+--------------------------------------------------------------------------------
+workers: 200
+calls: 1000
+minimal_execution_time: 2.536203
+real_execution_time: 3.152940
+effectiveness of parallelization: 80.44%
+
+num of calls: served by num of wokers
+           3:   17
+           4:   60
+           5:   62
+           6:   43
+           7:    9
+           8:    5
+           9:    2
+          10:    2
+--------------------------------------------------------------------------------
+workers: 200
+calls: 2000
+minimal_execution_time: 4.956501
+real_execution_time: 5.621964
+effectiveness of parallelization: 88.16%
+
+num of calls: served by num of wokers
+           6:    1
+           7:   10
+           8:   24
+           9:   50
+          10:   52
+          11:   27
+          12:   17
+          13:   12
+          14:    2
+          15:    3
+          16:    2
