@@ -29,6 +29,10 @@ func (s *server) Execute(ctx context.Context, req *p.RequestExecute) (*p.Respons
 	return &p.ResponseExecute{Result: result}, nil
 }
 
+func (s *server) GetWorkers(ctx context.Context, req *p.RequestGetWorkers) (*p.ResponseGetWorkers, error) {
+	return &p.ResponseGetWorkers{Workers: int32(*workers)}, nil
+}
+
 func main() {
 	flag.Parse()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", *grpcPort))

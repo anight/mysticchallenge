@@ -10,3 +10,5 @@ def func(x):
 
 out = func(2).run()
 assert out == 4
+
+print("success")

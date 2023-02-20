@@ -23,6 +23,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type RemoteExecuteAPIClient interface {
 	Execute(ctx context.Context, in *RequestExecute, opts ...grpc.CallOption) (*ResponseExecute, error)
+	GetWorkers(ctx context.Context, in *RequestGetWorkers, opts ...grpc.CallOption) (*ResponseGetWorkers, error)
 }
 
 type remoteExecuteAPIClient struct {
@@ -42,11 +43,21 @@ func (c *remoteExecuteAPIClient) Execute(ctx context.Context, in *RequestExecute
 	return out, nil
 }
 
+func (c *remoteExecuteAPIClient) GetWorkers(ctx context.Context, in *RequestGetWorkers, opts ...grpc.CallOption) (*ResponseGetWorkers, error) {
+	out := new(ResponseGetWorkers)
+	err := c.cc.Invoke(ctx, "/com.github.anight.mysticchallenge.RemoteExecuteAPI/GetWorkers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RemoteExecuteAPIServer is the server API for RemoteExecuteAPI service.
 // All implementations must embed UnimplementedRemoteExecuteAPIServer
 // for forward compatibility
 type RemoteExecuteAPIServer interface {
 	Execute(context.Context, *RequestExecute) (*ResponseExecute, error)
+	GetWorkers(context.Context, *RequestGetWorkers) (*ResponseGetWorkers, error)
 	mustEmbedUnimplementedRemoteExecuteAPIServer()
 }
 
@@ -56,6 +67,9 @@ type UnimplementedRemoteExecuteAPIServer struct {
 
 func (UnimplementedRemoteExecuteAPIServer) Execute(context.Context, *RequestExecute) (*ResponseExecute, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Execute not implemented")
+}
+func (UnimplementedRemoteExecuteAPIServer) GetWorkers(context.Context, *RequestGetWorkers) (*ResponseGetWorkers, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetWorkers not implemented")
 }
 func (UnimplementedRemoteExecuteAPIServer) mustEmbedUnimplementedRemoteExecuteAPIServer() {}
 
@@ -88,6 +102,24 @@ func _RemoteExecuteAPI_Execute_Handler(srv interface{}, ctx context.Context, dec
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RemoteExecuteAPI_GetWorkers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RequestGetWorkers)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RemoteExecuteAPIServer).GetWorkers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/com.github.anight.mysticchallenge.RemoteExecuteAPI/GetWorkers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RemoteExecuteAPIServer).GetWorkers(ctx, req.(*RequestGetWorkers))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RemoteExecuteAPI_ServiceDesc is the grpc.ServiceDesc for RemoteExecuteAPI service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -98,6 +130,10 @@ var RemoteExecuteAPI_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Execute",
 			Handler:    _RemoteExecuteAPI_Execute_Handler,
+		},
+		{
+			MethodName: "GetWorkers",
+			Handler:    _RemoteExecuteAPI_GetWorkers_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

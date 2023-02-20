@@ -5,14 +5,22 @@ package com.github.anight.mysticchallenge;
 option go_package = "github.com/anight/mysticchallenge/proto";
 
 message RequestExecute {
-        bytes request = 1;
+        bytes request = 1; /* serialized func, depmodules, args, kwargs */
 }
 
 message ResponseExecute {
-        bytes result = 1;
+        bytes result = 1; /* serialized result, stdout, stderr, exception */
         string error = 2;
+}
+
+message RequestGetWorkers {
+}
+
+message ResponseGetWorkers {
+        int32 workers = 1;
 }
 
 service RemoteExecuteAPI {
         rpc Execute(RequestExecute) returns (ResponseExecute) {}
+        rpc GetWorkers(RequestGetWorkers) returns (ResponseGetWorkers) {}
 }

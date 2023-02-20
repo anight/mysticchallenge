@@ -19,12 +19,23 @@ class RemoteExecuteAPIStub(object):
                 request_serializer=challenge__pb2.RequestExecute.SerializeToString,
                 response_deserializer=challenge__pb2.ResponseExecute.FromString,
                 )
+        self.GetWorkers = channel.unary_unary(
+                '/com.github.anight.mysticchallenge.RemoteExecuteAPI/GetWorkers',
+                request_serializer=challenge__pb2.RequestGetWorkers.SerializeToString,
+                response_deserializer=challenge__pb2.ResponseGetWorkers.FromString,
+                )
 
 
 class RemoteExecuteAPIServicer(object):
     """Missing associated documentation comment in .proto file."""
 
     def Execute(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetWorkers(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -37,6 +48,11 @@ def add_RemoteExecuteAPIServicer_to_server(servicer, server):
                     servicer.Execute,
                     request_deserializer=challenge__pb2.RequestExecute.FromString,
                     response_serializer=challenge__pb2.ResponseExecute.SerializeToString,
+            ),
+            'GetWorkers': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetWorkers,
+                    request_deserializer=challenge__pb2.RequestGetWorkers.FromString,
+                    response_serializer=challenge__pb2.ResponseGetWorkers.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -62,5 +78,22 @@ class RemoteExecuteAPI(object):
         return grpc.experimental.unary_unary(request, target, '/com.github.anight.mysticchallenge.RemoteExecuteAPI/Execute',
             challenge__pb2.RequestExecute.SerializeToString,
             challenge__pb2.ResponseExecute.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetWorkers(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/com.github.anight.mysticchallenge.RemoteExecuteAPI/GetWorkers',
+            challenge__pb2.RequestGetWorkers.SerializeToString,
+            challenge__pb2.ResponseGetWorkers.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

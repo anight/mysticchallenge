@@ -14,12 +14,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0f\x63hallenge.proto\x12!com.github.anight.mysticchallenge\"!\n\x0eRequestExecute\x12\x0f\n\x07request\x18\x01 \x01(\x0c\"0\n\x0fResponseExecute\x12\x0e\n\x06result\x18\x01 \x01(\x0c\x12\r\n\x05\x65rror\x18\x02 \x01(\t2\x86\x01\n\x10RemoteExecuteAPI\x12r\n\x07\x45xecute\x12\x31.com.github.anight.mysticchallenge.RequestExecute\x1a\x32.com.github.anight.mysticchallenge.ResponseExecute\"\x00\x42)Z\'github.com/anight/mysticchallenge/protob\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0f\x63hallenge.proto\x12!com.github.anight.mysticchallenge\"!\n\x0eRequestExecute\x12\x0f\n\x07request\x18\x01 \x01(\x0c\"0\n\x0fResponseExecute\x12\x0e\n\x06result\x18\x01 \x01(\x0c\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"\x13\n\x11RequestGetWorkers\"%\n\x12ResponseGetWorkers\x12\x0f\n\x07workers\x18\x01 \x01(\x05\x32\x83\x02\n\x10RemoteExecuteAPI\x12r\n\x07\x45xecute\x12\x31.com.github.anight.mysticchallenge.RequestExecute\x1a\x32.com.github.anight.mysticchallenge.ResponseExecute\"\x00\x12{\n\nGetWorkers\x12\x34.com.github.anight.mysticchallenge.RequestGetWorkers\x1a\x35.com.github.anight.mysticchallenge.ResponseGetWorkers\"\x00\x42)Z\'github.com/anight/mysticchallenge/protob\x06proto3')
 
 
 
 _REQUESTEXECUTE = DESCRIPTOR.message_types_by_name['RequestExecute']
 _RESPONSEEXECUTE = DESCRIPTOR.message_types_by_name['ResponseExecute']
+_REQUESTGETWORKERS = DESCRIPTOR.message_types_by_name['RequestGetWorkers']
+_RESPONSEGETWORKERS = DESCRIPTOR.message_types_by_name['ResponseGetWorkers']
 RequestExecute = _reflection.GeneratedProtocolMessageType('RequestExecute', (_message.Message,), {
   'DESCRIPTOR' : _REQUESTEXECUTE,
   '__module__' : 'challenge_pb2'
@@ -34,6 +36,20 @@ ResponseExecute = _reflection.GeneratedProtocolMessageType('ResponseExecute', (_
   })
 _sym_db.RegisterMessage(ResponseExecute)
 
+RequestGetWorkers = _reflection.GeneratedProtocolMessageType('RequestGetWorkers', (_message.Message,), {
+  'DESCRIPTOR' : _REQUESTGETWORKERS,
+  '__module__' : 'challenge_pb2'
+  # @@protoc_insertion_point(class_scope:com.github.anight.mysticchallenge.RequestGetWorkers)
+  })
+_sym_db.RegisterMessage(RequestGetWorkers)
+
+ResponseGetWorkers = _reflection.GeneratedProtocolMessageType('ResponseGetWorkers', (_message.Message,), {
+  'DESCRIPTOR' : _RESPONSEGETWORKERS,
+  '__module__' : 'challenge_pb2'
+  # @@protoc_insertion_point(class_scope:com.github.anight.mysticchallenge.ResponseGetWorkers)
+  })
+_sym_db.RegisterMessage(ResponseGetWorkers)
+
 _REMOTEEXECUTEAPI = DESCRIPTOR.services_by_name['RemoteExecuteAPI']
 if _descriptor._USE_C_DESCRIPTORS == False:
 
@@ -43,6 +59,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _REQUESTEXECUTE._serialized_end=87
   _RESPONSEEXECUTE._serialized_start=89
   _RESPONSEEXECUTE._serialized_end=137
-  _REMOTEEXECUTEAPI._serialized_start=140
-  _REMOTEEXECUTEAPI._serialized_end=274
+  _REQUESTGETWORKERS._serialized_start=139
+  _REQUESTGETWORKERS._serialized_end=158
+  _RESPONSEGETWORKERS._serialized_start=160
+  _RESPONSEGETWORKERS._serialized_end=197
+  _REMOTEEXECUTEAPI._serialized_start=200
+  _REMOTEEXECUTEAPI._serialized_end=459
 # @@protoc_insertion_point(module_scope)
