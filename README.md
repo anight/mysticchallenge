@@ -118,7 +118,7 @@ For every run there is a histogram showing how many workers executed how many re
 # Finale
 I think there are a lot of bugs in my code, but at least it works within conditions I mentioned.
 
- - 166 lines of python code in distribute_challenge module
+ - 164 lines of python code in distribute_challenge module
  - 293 lines of go code for server
 
 Your feedback is very welcome !

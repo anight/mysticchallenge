@@ -27,12 +27,19 @@ class RemoteFunctionCall:
         self.args = args
         self.kwargs = kwargs
 
-    def request(self):
+    def _request_body(self):
         return request_serialize(
             self.remote_func.func, self.remote_func.depmodules, self.args, self.kwargs
         )
 
-    def process_response(self, response):
+    def _request(self):
+        return self.remote_func.context.api.Execute(
+            challenge_pb2.RequestExecute(
+                request=self._request_body()
+            )
+        )
+
+    def _process_response(self, response):
         if response.error != "":
             raise MethodReturnedError(f"Execute() method failed: {response.error}")
 
@@ -47,18 +54,9 @@ class RemoteFunctionCall:
         return result
 
     def run(self):
-        request = self.remote_func.context.api.Execute(
-            challenge_pb2.RequestExecute(
-                request=self.request()
-            )
-        )
-        response = self.remote_func.context.unary_unary_call(request)
-        return self.process_response(response)
+        response = self.remote_func.context.unary_unary_call(self._request())
+        return self._process_response(response)
 
     async def async_run(self):
-        response = await self.remote_func.context.api.Execute(
-            challenge_pb2.RequestExecute(
-                request=self.request()
-            )
-        )
-        return self.process_response(response)
+        response = await self._request()
+        return self._process_response(response)

@@ -4,9 +4,9 @@ import grpc
 class ServerContext:
     def __init__(self, address, api_stub):
         self.address = address
-        self.api = api_stub(self.new_channel())
+        self.api = api_stub(self._new_channel())
 
-    def new_channel(self):
+    def _new_channel(self):
         channel = None
         if '://' in self.address:
             scheme, hostport = self.address.split('://', 1)
